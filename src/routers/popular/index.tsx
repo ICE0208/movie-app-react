@@ -11,8 +11,6 @@ function Popular() {
     refetchOnWindowFocus: false,
   });
 
-  console.log(data);
-
   return (
     <Wrapper>
       {isLoading ? (
