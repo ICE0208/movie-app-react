@@ -1,4 +1,4 @@
-const BASE_URL = "https://movies-api.nomadcoders.workers.dev";
+const BASE_URL = 'https://movies-api.nomadcoders.workers.dev';
 
 export function getPopular() {
   return fetch(`${BASE_URL}/popular`).then((r) => r.json());
@@ -24,7 +24,7 @@ export function makeBgPath(image: string) {
   return `https://image.tmdb.org/t/p/original${image}`;
 }
 
-interface IMovie {
+export interface IMovie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

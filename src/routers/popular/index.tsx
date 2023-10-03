@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Wrapper } from '../../styles';
 import { IAPIResponse, getPopular } from '../../api';
+import { MovieList } from '../../components';
 
 function Popular() {
   const { data, isLoading } = useQuery<IAPIResponse>({
@@ -17,11 +18,10 @@ function Popular() {
       {isLoading ? (
         <span>Loading</span>
       ) : (
-        <ul>
-          {data?.results.map((movie) => <li key={movie.id}>{movie.title}</li>)}
-        </ul>
+        <MovieList movies={data?.results || []} />
       )}
     </Wrapper>
   );
 }
+
 export default Popular;
