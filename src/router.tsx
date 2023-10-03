@@ -1,9 +1,10 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom';
+import Root from './Root';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: null,
+    element: <Root />,
     children: [
       {
         path: '',
