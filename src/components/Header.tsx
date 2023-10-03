@@ -20,12 +20,25 @@ function Header() {
 }
 
 const Nav = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 64px;
-  background-color: red;
+  background-color: #3d3d3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Items = styled.div``;
+const Items = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  font-weight: bold;
+  color: white;
+`;
 
 const Item = styled.div``;
 
