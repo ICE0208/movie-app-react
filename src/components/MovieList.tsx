@@ -6,7 +6,7 @@ function MovieList({ movies }: { movies: IMovie[] }) {
   return (
     <Container>
       {movies.map((movie) => (
-        <MovieItem movie={movie} />
+        <MovieItem movie={movie} key={movie.id} />
       ))}
     </Container>
   );

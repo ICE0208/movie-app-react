@@ -3,7 +3,7 @@ import { IMovie, makeImagePath } from '../api';
 
 function MovieItem({ movie }: { movie: IMovie }) {
   return (
-    <Item key={movie.id}>
+    <Item>
       <Img src={makeImagePath(movie.poster_path)} />
       <Title>{movie.title}</Title>
     </Item>
