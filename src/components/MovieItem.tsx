@@ -1,17 +1,27 @@
 import styled from 'styled-components';
 import { IMovie, makeImagePath } from '../api';
+import { Variants, motion } from 'framer-motion';
 
 function MovieItem({ movie }: { movie: IMovie }) {
   return (
-    <Item>
+    <Item variants={itemVariants}>
       <Img src={makeImagePath(movie.poster_path)} />
       <Title>{movie.title}</Title>
     </Item>
   );
 }
-const Item = styled.div`
+const Item = styled(motion.div)`
   border-radius: 20px;
 `;
+
+const itemVariants: Variants = {
+  hidden: { y: 40, opacity: 0, scale: 0.7 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+  },
+};
 
 const Img = styled.img`
   width: 100%;
