@@ -38,7 +38,7 @@ const Nav = styled.div`
   left: 0;
   width: 100%;
   height: ${HEADER_HEIGHT}px;
-  background-color: #3d3d3d;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
