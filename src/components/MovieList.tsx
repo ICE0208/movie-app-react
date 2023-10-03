@@ -4,9 +4,13 @@ import { MovieItem } from '.';
 import { Variants, motion } from 'framer-motion';
 
 function MovieList({ movies }: { movies: IMovie[] }) {
+  const sortedMovies = [...movies].sort(
+    (a, b) => b.vote_average - a.vote_average,
+  );
+
   return (
     <Container variants={containerVariants} initial="hidden" animate="visible">
-      {movies.map((movie) => (
+      {sortedMovies.map((movie) => (
         <MovieItem movie={movie} key={movie.id} />
       ))}
     </Container>
