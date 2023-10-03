@@ -3,19 +3,22 @@ import styled from 'styled-components';
 
 function Header() {
   return (
-    <Nav>
-      <Items>
-        <Item>
-          <Link to="/">POPULAR</Link>
-        </Item>
-        <Item>
-          <Link to="/coming-soon">COMING SOON</Link>
-        </Item>
-        <Item>
-          <Link to="/now-playing">NOW PLAYING</Link>
-        </Item>
-      </Items>
-    </Nav>
+    <>
+      <Nav>
+        <Items>
+          <Item>
+            <Link to="/">POPULAR</Link>
+          </Item>
+          <Item>
+            <Link to="/coming-soon">COMING SOON</Link>
+          </Item>
+          <Item>
+            <Link to="/now-playing">NOW PLAYING</Link>
+          </Item>
+        </Items>
+      </Nav>
+      <div style={{ height: '64px' }}></div>
+    </>
   );
 }
 
