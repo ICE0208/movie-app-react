@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { IMovieDetail, getMovie, makeImagePath } from '../api';
 import { useQuery } from '@tanstack/react-query';
+import { formatMoney } from '../utils';
 
 function Detail({ movieId }: { movieId: string }) {
   const { data, isLoading } = useQuery<IMovieDetail>({
@@ -22,8 +23,8 @@ function Detail({ movieId }: { movieId: string }) {
             <Title>{data?.title}</Title>
             <OverView>{data?.overview}</OverView>
             <InfoBox>
-              <InfoText>Budget: ${data?.budget}</InfoText>
-              <InfoText>Revenue: ${data?.revenue}</InfoText>
+              <InfoText>Budget: ${formatMoney(data?.budget)}</InfoText>
+              <InfoText>Revenue: ${formatMoney(data?.revenue)}</InfoText>
               <InfoText>Runtime: {data?.runtime}</InfoText>
               <InfoText>Rating: {data?.vote_average}</InfoText>
               <InfoText>Homepage: {data?.homepage}</InfoText>
