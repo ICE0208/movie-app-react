@@ -42,6 +42,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 `;
 
 const Items = styled.div`
