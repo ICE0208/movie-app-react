@@ -1,5 +1,6 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { Detail } from '.';
 
 function Overlay() {
   const params = useParams<{ movieId?: string }>();
@@ -16,7 +17,13 @@ function Overlay() {
   };
 
   return (
-    <>{params.movieId && <Container onClick={containerClick}></Container>}</>
+    <>
+      {params.movieId && (
+        <Container onClick={containerClick}>
+          <Detail movieId={params.movieId} />
+        </Container>
+      )}
+    </>
   );
 }
 
