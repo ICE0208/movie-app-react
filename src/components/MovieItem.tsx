@@ -47,7 +47,7 @@ const Img = styled(motion.img)`
 
 const Title = styled.div`
   padding: 20px 4px;
-  font-size: 26px;
+  font-size: 1.7vw;
   text-align: center;
   font-weight: bold;
 `;

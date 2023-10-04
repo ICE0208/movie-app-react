@@ -38,7 +38,7 @@ export default Detail;
 
 const Container = styled(motion.div)`
   width: 44vw;
-  height: 80vh;
+  height: 85vh;
   position: fixed;
   inset: 0;
   margin: auto;
@@ -47,6 +47,7 @@ const Container = styled(motion.div)`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 `;
 
 const Img = styled.div<{ $bgPhoto: string }>`
@@ -68,14 +69,14 @@ const Texts = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 48px;
+  font-size: 2.3vw;
   font-weight: bold;
   font-style: italic;
   padding: 10px 0;
 `;
 
 const OverView = styled.p`
-  font-size: 24px;
+  font-size: 1.5vw;
   padding: 8px 0;
 `;
 
@@ -83,6 +84,6 @@ const InfoBox = styled.div`
   padding: 10px 0;
 `;
 const InfoText = styled.p`
-  font-size: 22px;
+  font-size: 1.3vw;
   padding: 2px 0;
 `;

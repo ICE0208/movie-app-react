@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link, useMatch } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const HEADER_HEIGHT = 100;
+export const HEADER_HEIGHT = 7.2;
 
 function Header() {
   const popularMatch = useMatch('/');
@@ -36,12 +36,13 @@ const Nav = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: ${HEADER_HEIGHT}px;
+  height: ${HEADER_HEIGHT}vw;
   background-color: black;
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 999;
+  align-items: end;
+  z-index: 1;
+  border-bottom: 4px solid whitesmoke;
 `;
 
 const Items = styled.div`
@@ -49,13 +50,19 @@ const Items = styled.div`
   justify-content: center;
   align-items: center;
   gap: 60px;
-  font-size: 30px;
+  font-size: min(36px, 2.5vw);
   font-weight: bold;
   color: white;
+  width: 100%;
+  padding: 0 14vw;
+  padding-bottom: 2.2vw;
 `;
 
 const Item = styled.div`
   position: relative;
+  flex-grow: 1;
+  width: 100%;
+  text-align: center;
 `;
 
 const Circle = styled(motion.div)`
