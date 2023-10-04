@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { IMovie, makeImagePath } from '../api';
 import { Variants, motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 function MovieItem({ movie }: { movie: IMovie }) {
   return (
@@ -8,10 +9,12 @@ function MovieItem({ movie }: { movie: IMovie }) {
       variants={itemVariants}
       // whileHover={{ scale: 1.2 }} <- why bug?
     >
-      <Img
-        src={makeImagePath(movie.poster_path)}
-        whileHover={{ scale: 1.1, y: -30 }}
-      />
+      <Link to={`${movie.id}`}>
+        <Img
+          src={makeImagePath(movie.poster_path)}
+          whileHover={{ scale: 1.1, y: -30 }}
+        />
+      </Link>
       <Title>{movie.title}</Title>
     </Item>
   );
