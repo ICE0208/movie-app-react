@@ -23,10 +23,10 @@ function Detail({ movieId }: { movieId: string }) {
             <Title>{data?.title}</Title>
             <OverView>{data?.overview}</OverView>
             <InfoBox>
-              <InfoText>Budget: ${formatMoney(data?.budget)}</InfoText>
-              <InfoText>Revenue: ${formatMoney(data?.revenue)}</InfoText>
+              <InfoText>Budget: {formatMoney(data?.budget)}</InfoText>
+              <InfoText>Revenue: {formatMoney(data?.revenue)}</InfoText>
               <InfoText>Runtime: {formatTime(data?.runtime)}</InfoText>
-              <InfoText>Rating: {formatRating(data?.vote_average)}/10</InfoText>
+              <InfoText>Rating: {formatRating(data?.vote_average)}</InfoText>
               <InfoText>Homepage: {data?.homepage}</InfoText>
             </InfoBox>
           </Texts>
