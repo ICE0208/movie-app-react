@@ -4,18 +4,29 @@ import { Variants, motion } from 'framer-motion';
 
 function MovieItem({ movie }: { movie: IMovie }) {
   return (
-    <Item variants={itemVariants}>
-      <Img src={makeImagePath(movie.poster_path)} />
+    <Item
+      variants={itemVariants}
+      // whileHover={{ scale: 1.2 }} <- why bug?
+    >
+      <Img
+        src={makeImagePath(movie.poster_path)}
+        whileHover={{ scale: 1.1, y: -30 }}
+      />
       <Title>{movie.title}</Title>
     </Item>
   );
 }
+
 const Item = styled(motion.div)`
   border-radius: 20px;
 `;
 
 const itemVariants: Variants = {
-  hidden: { y: 40, opacity: 0, scale: 0.7 },
+  hidden: {
+    y: 40,
+    opacity: 0,
+    scale: 0.7,
+  },
   visible: {
     y: 0,
     opacity: 1,
@@ -23,7 +34,7 @@ const itemVariants: Variants = {
   },
 };
 
-const Img = styled.img`
+const Img = styled(motion.img)`
   width: 100%;
   height: 450px;
   object-fit: cover;
