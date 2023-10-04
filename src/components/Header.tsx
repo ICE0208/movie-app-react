@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link, useMatch } from 'react-router-dom';
 import styled from 'styled-components';
 
-const HEADER_HEIGHT = 100;
+export const HEADER_HEIGHT = 100;
 
 function Header() {
   const popularMatch = useMatch('/');
@@ -27,7 +27,6 @@ function Header() {
           </Item>
         </Items>
       </Nav>
-      <div style={{ height: `${HEADER_HEIGHT}px` }}></div>
     </>
   );
 }

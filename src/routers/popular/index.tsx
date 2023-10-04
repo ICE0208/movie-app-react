@@ -15,7 +15,7 @@ function Popular() {
   const params = useParams<{ movieId?: string }>();
 
   return (
-    <Wrapper>
+    <Wrapper $preventScroll={Boolean(params.movieId)}>
       {isLoading ? (
         <span>Loading</span>
       ) : (
