@@ -12,8 +12,6 @@ function Detail({ movieId }: { movieId: string }) {
     refetchOnWindowFocus: false,
   });
 
-  console.log(data);
-
   return (
     <Container layoutId={movieId}>
       {!isLoading && (
@@ -39,12 +37,12 @@ function Detail({ movieId }: { movieId: string }) {
 export default Detail;
 
 const Container = styled(motion.div)`
-  width: 700px;
+  width: 44vw;
   height: 80vh;
   position: fixed;
   inset: 0;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   border-radius: 20px;
   overflow: hidden;
   display: flex;
@@ -56,11 +54,11 @@ const Img = styled.div<{ $bgPhoto: string }>`
     url(${(props) => props.$bgPhoto});
   background-size: cover;
   width: 100%;
-  min-height: 340px;
+  min-height: 23vw;
 `;
 
 const Texts = styled.div`
-  padding: 40px 24px;
+  padding: 40px 32px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -85,5 +83,6 @@ const InfoBox = styled.div`
   padding: 10px 0;
 `;
 const InfoText = styled.p`
-  font-size: 20px;
+  font-size: 22px;
+  padding: 2px 0;
 `;

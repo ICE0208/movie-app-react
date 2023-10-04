@@ -40,9 +40,9 @@ const itemVariants: Variants = {
 
 const Img = styled(motion.img)`
   width: 100%;
-  height: 450px;
+  height: 32vw;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 2vw;
 `;
 
 const Title = styled.div`
