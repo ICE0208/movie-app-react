@@ -7,6 +7,7 @@ function MovieItem({ movie }: { movie: IMovie }) {
   return (
     <Item
       variants={itemVariants}
+      layoutId={String(movie.id)}
       // whileHover={{ scale: 1.2 }} <- why bug?
     >
       <Link to={`${movie.id}`}>

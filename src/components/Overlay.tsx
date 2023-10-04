@@ -1,15 +1,15 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Detail } from '.';
+import { motion } from 'framer-motion';
 
-function Overlay() {
-  const params = useParams<{ movieId?: string }>();
+function Overlay({ movieId }: { movieId: string }) {
   const navigate = useNavigate();
   const location = useLocation();
 
   const containerClick = () => {
     const urlWithoutParams = location.pathname.replace(
-      new RegExp(`/${params.movieId}.*$`),
+      new RegExp(`/${movieId}.*$`),
       '',
     );
 
@@ -18,10 +18,11 @@ function Overlay() {
 
   return (
     <>
-      {params.movieId && (
-        <Container onClick={containerClick}>
-          <Detail movieId={params.movieId} />
-        </Container>
+      {movieId && (
+        <>
+          <Container onClick={containerClick} />
+          <Detail movieId={movieId} />
+        </>
       )}
     </>
   );
@@ -29,7 +30,7 @@ function Overlay() {
 
 export default Overlay;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   position: fixed;

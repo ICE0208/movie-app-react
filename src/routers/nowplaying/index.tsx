@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Wrapper } from '../../styles';
 import { IAPIResponse, getNowPlaying } from '../../api';
 import { MovieList, Overlay } from '../../components';
+import { useParams } from 'react-router-dom';
 
 function NowPlaying() {
   const { data, isLoading } = useQuery<IAPIResponse>({
@@ -11,6 +12,8 @@ function NowPlaying() {
     refetchOnWindowFocus: false,
   });
 
+  const params = useParams<{ movieId?: string }>();
+
   return (
     <Wrapper>
       {isLoading ? (
@@ -18,7 +21,7 @@ function NowPlaying() {
       ) : (
         <>
           <MovieList movies={data?.results || []} />
-          <Overlay />
+          {params.movieId && <Overlay movieId={params.movieId} />}
         </>
       )}
     </Wrapper>

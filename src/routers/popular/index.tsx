@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Wrapper } from '../../styles';
 import { IAPIResponse, getPopular } from '../../api';
 import { MovieList, Overlay } from '../../components';
+import { useParams } from 'react-router-dom';
 
 function Popular() {
   const { data, isLoading } = useQuery<IAPIResponse>({
@@ -11,6 +12,8 @@ function Popular() {
     refetchOnWindowFocus: false,
   });
 
+  const params = useParams<{ movieId?: string }>();
+
   return (
     <Wrapper>
       {isLoading ? (
@@ -18,7 +21,7 @@ function Popular() {
       ) : (
         <>
           <MovieList movies={data?.results || []} />
-          <Overlay />
+          {params.movieId && <Overlay movieId={params.movieId} />}
         </>
       )}
     </Wrapper>
