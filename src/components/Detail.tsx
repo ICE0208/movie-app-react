@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { IMovieDetail, getMovie, makeBgPath, makeImagePath } from '../api';
+import { IMovieDetail, getMovie, makeImagePath } from '../api';
 import { useQuery } from '@tanstack/react-query';
 
 function Detail({ movieId }: { movieId: string }) {
@@ -19,9 +19,15 @@ function Detail({ movieId }: { movieId: string }) {
         <>
           <Img $bgPhoto={makeImagePath(data?.backdrop_path ?? '') ?? ''} />
           <Texts>
-            <div style={{ height: '30vh' }}>Text1</div>
-            <div style={{ height: '30vh' }}>Text2</div>
-            <div style={{ height: '30vh' }}>Text3</div>
+            <Title>{data?.title}</Title>
+            <OverView>{data?.overview}</OverView>
+            <InfoBox>
+              <InfoText>Budget: ${data?.budget}</InfoText>
+              <InfoText>Revenue: ${data?.revenue}</InfoText>
+              <InfoText>Runtime: {data?.runtime}</InfoText>
+              <InfoText>Rating: {data?.vote_average}</InfoText>
+              <InfoText>Homepage: {data?.homepage}</InfoText>
+            </InfoBox>
           </Texts>
         </>
       )}
@@ -53,10 +59,30 @@ const Img = styled.div<{ $bgPhoto: string }>`
 `;
 
 const Texts = styled.div`
+  padding: 40px 24px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
+`;
+
+const Title = styled.h3`
+  font-size: 48px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 10px 0;
+`;
+
+const OverView = styled.p`
+  font-size: 24px;
+  padding: 8px 0;
+`;
+
+const InfoBox = styled.div`
+  padding: 10px 0;
+`;
+const InfoText = styled.p`
+  font-size: 20px;
 `;
