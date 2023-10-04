@@ -3,6 +3,7 @@ import { Wrapper } from '../../styles';
 import { IAPIResponse, getPopular } from '../../api';
 import { MovieList, Overlay } from '../../components';
 import { useParams } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 function Popular() {
   const { data, isLoading } = useQuery<IAPIResponse>({
@@ -21,7 +22,7 @@ function Popular() {
       ) : (
         <>
           <MovieList movies={data?.results || []} />
-          {params.movieId && <Overlay movieId={params.movieId} />}
+          <Overlay movieId={params.movieId} />
         </>
       )}
     </Wrapper>

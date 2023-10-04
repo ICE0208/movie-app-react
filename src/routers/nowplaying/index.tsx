@@ -21,7 +21,7 @@ function NowPlaying() {
       ) : (
         <>
           <MovieList movies={data?.results || []} />
-          {params.movieId && <Overlay movieId={params.movieId} />}
+          <Overlay movieId={params.movieId} />
         </>
       )}
     </Wrapper>

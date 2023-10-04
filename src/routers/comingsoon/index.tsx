@@ -21,7 +21,7 @@ function ComingSoon() {
       ) : (
         <>
           <MovieList movies={data?.results || []} />
-          {params.movieId && <Overlay movieId={params.movieId} />}
+          <Overlay movieId={params.movieId} />
         </>
       )}
     </Wrapper>
