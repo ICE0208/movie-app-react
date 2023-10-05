@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { formatMoney, formatRating, formatTime } from '../utils';
 import { XMarkIcon } from '@heroicons/react/20/solid';
 import { Loading } from '.';
+import { Helmet } from 'react-helmet';
 
 function Detail({
   movieId,
@@ -26,6 +27,9 @@ function Detail({
         <Loading />
       ) : (
         <>
+          <Helmet>
+            <title>{data?.title}</title>
+          </Helmet>
           <Close
             onClick={goBackFn}
             initial={{

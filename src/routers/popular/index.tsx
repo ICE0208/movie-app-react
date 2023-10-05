@@ -3,6 +3,7 @@ import { Wrapper } from '../../styles';
 import { IAPIResponse, getPopular } from '../../api';
 import { Loading, MovieList, Overlay } from '../../components';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function Popular() {
   const { data, isLoading } = useQuery<IAPIResponse>({
@@ -15,16 +16,21 @@ function Popular() {
   const params = useParams<{ movieId?: string }>();
 
   return (
-    <Wrapper $preventScroll={Boolean(params.movieId)}>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <>
-          <MovieList movies={data?.results || []} />
-          <Overlay movieId={params.movieId} />
-        </>
-      )}
-    </Wrapper>
+    <>
+      <Helmet>
+        <title>Popular</title>
+      </Helmet>
+      <Wrapper $preventScroll={Boolean(params.movieId)}>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <MovieList movies={data?.results || []} />
+            <Overlay movieId={params.movieId} />
+          </>
+        )}
+      </Wrapper>
+    </>
   );
 }
 
