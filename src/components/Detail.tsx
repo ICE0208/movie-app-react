@@ -26,7 +26,24 @@ function Detail({
         <Loading />
       ) : (
         <>
-          <Close onClick={goBackFn}>
+          <Close
+            onClick={goBackFn}
+            initial={{
+              border: '2px solid rgba(255, 255, 255, 0)',
+            }}
+            animate={{
+              border: '2px solid rgba(255,255,255,0)',
+              transition: { duration: 0.2 },
+            }}
+            whileHover={{
+              border: '2px solid rgba(255,255,255,0.8)',
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{
+              border: '2px solid rgba(255,255,255,1)',
+              transition: { duration: 0.2 },
+            }}
+          >
             <XMarkIcon />
           </Close>
           <Img $bgPhoto={makeImagePath(data?.backdrop_path ?? '') ?? ''} />
@@ -101,7 +118,7 @@ const InfoText = styled.p`
   padding: 3px 0;
 `;
 
-const Close = styled.div`
+const Close = styled(motion.div)`
   position: absolute;
   right: 10px;
   top: 10px;
@@ -111,4 +128,5 @@ const Close = styled.div`
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 50%;
+  box-sizing: border-box;
 `;
