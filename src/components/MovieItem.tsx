@@ -7,11 +7,11 @@ function MovieItem({ movie }: { movie: IMovie }) {
   return (
     <Item
       variants={itemVariants}
-      layoutId={String(movie.id)}
       // whileHover={{ scale: 1.2 }} <- why bug?
     >
       <Link to={`${movie.id}`}>
         <Img
+          layoutId={String(movie.id)}
           src={makeImagePath(movie.poster_path)}
           whileHover={{ scale: 1.1, y: -30 }}
         />
