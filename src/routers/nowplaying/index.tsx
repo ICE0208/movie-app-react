@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Wrapper } from '../../styles';
 import { IAPIResponse, getNowPlaying } from '../../api';
-import { MovieList, Overlay } from '../../components';
+import { Loading, MovieList, Overlay } from '../../components';
 import { useParams } from 'react-router-dom';
 
 function NowPlaying() {
@@ -17,7 +17,7 @@ function NowPlaying() {
   return (
     <Wrapper $preventScroll={Boolean(params.movieId)}>
       {isLoading ? (
-        <span>Loading</span>
+        <Loading />
       ) : (
         <>
           <MovieList movies={data?.results || []} />
