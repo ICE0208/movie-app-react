@@ -29,7 +29,7 @@ function Overlay({ movieId }: { movieId?: string }) {
           />
         )}
       </AnimatePresence>
-      {movieId && <Detail movieId={movieId} />}
+      {movieId && <Detail movieId={movieId} goBackFn={containerClick} />}
     </>
   );
 }

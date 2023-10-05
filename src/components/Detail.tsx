@@ -3,8 +3,15 @@ import styled from 'styled-components';
 import { IMovieDetail, getMovie, makeImagePath } from '../api';
 import { useQuery } from '@tanstack/react-query';
 import { formatMoney, formatRating, formatTime } from '../utils';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 
-function Detail({ movieId }: { movieId: string }) {
+function Detail({
+  movieId,
+  goBackFn,
+}: {
+  movieId: string;
+  goBackFn: () => void;
+}) {
   const { data, isLoading } = useQuery<IMovieDetail>({
     queryKey: ['movies', 'detail', `${movieId}`],
     queryFn: () => getMovie(movieId),
@@ -16,6 +23,9 @@ function Detail({ movieId }: { movieId: string }) {
     <Container layoutId={movieId}>
       {!isLoading && (
         <>
+          <Close onClick={goBackFn}>
+            <XMarkIcon />
+          </Close>
           <Img $bgPhoto={makeImagePath(data?.backdrop_path ?? '') ?? ''} />
           <Texts>
             <Title>{data?.title}</Title>
@@ -86,4 +96,16 @@ const InfoBox = styled.div`
 const InfoText = styled.p`
   font-size: 16px;
   padding: 3px 0;
+`;
+
+const Close = styled.div`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 50%;
 `;
