@@ -37,8 +37,8 @@ function Detail({ movieId }: { movieId: string }) {
 export default Detail;
 
 const Container = styled(motion.div)`
-  width: 44vw;
-  height: 85vh;
+  width: 600px;
+  height: 700px;
   position: fixed;
   inset: 0;
   margin: auto;
@@ -55,11 +55,11 @@ const Img = styled.div<{ $bgPhoto: string }>`
     url(${(props) => props.$bgPhoto});
   background-size: cover;
   width: 100%;
-  min-height: 23vw;
+  min-height: 240px;
 `;
 
 const Texts = styled.div`
-  padding: 40px 32px;
+  padding: 10px 32px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -69,21 +69,21 @@ const Texts = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 2.3vw;
+  font-size: 28px;
   font-weight: bold;
   font-style: italic;
   padding: 10px 0;
 `;
 
 const OverView = styled.p`
-  font-size: 1.5vw;
+  font-size: 18px;
   padding: 8px 0;
 `;
 
 const InfoBox = styled.div`
-  padding: 10px 0;
+  padding: 14px 0;
 `;
 const InfoText = styled.p`
-  font-size: 1.3vw;
-  padding: 2px 0;
+  font-size: 16px;
+  padding: 3px 0;
 `;

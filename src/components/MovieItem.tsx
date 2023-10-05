@@ -40,14 +40,14 @@ const itemVariants: Variants = {
 
 const Img = styled(motion.img)`
   width: 100%;
-  height: 32vw;
+  height: 400px;
   object-fit: cover;
-  border-radius: 2vw;
+  border-radius: 4%;
 `;
 
 const Title = styled.div`
   padding: 20px 4px;
-  font-size: 1.7vw;
+  font-size: 22px;
   text-align: center;
   font-weight: bold;
 `;

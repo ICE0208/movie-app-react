@@ -19,8 +19,8 @@ function MovieList({ movies }: { movies: IMovie[] }) {
 
 const Container = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(3, 18vw);
-  grid-gap: 3vw 2vw;
+  grid-template-columns: repeat(3, 240px);
+  grid-gap: 30px 24px;
   width: 100%;
   justify-content: center;
 `;
