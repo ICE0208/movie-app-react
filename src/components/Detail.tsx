@@ -4,6 +4,7 @@ import { IMovieDetail, getMovie, makeImagePath } from '../api';
 import { useQuery } from '@tanstack/react-query';
 import { formatMoney, formatRating, formatTime } from '../utils';
 import { XMarkIcon } from '@heroicons/react/20/solid';
+import { Loading } from '.';
 
 function Detail({
   movieId,
@@ -21,7 +22,9 @@ function Detail({
 
   return (
     <Container layoutId={movieId}>
-      {!isLoading && (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <>
           <Close onClick={goBackFn}>
             <XMarkIcon />
