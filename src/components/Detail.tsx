@@ -59,7 +59,11 @@ function Detail({
               <InfoText>Revenue: {formatMoney(data?.revenue)}</InfoText>
               <InfoText>Runtime: {formatTime(data?.runtime)}</InfoText>
               <InfoText>Rating: {formatRating(data?.vote_average)}</InfoText>
-              <InfoText>Homepage: {data?.homepage}</InfoText>
+              <InfoText>
+                <a href={data?.homepage} target="_blank">
+                  Homepage: {data?.homepage}
+                </a>
+              </InfoText>
             </InfoBox>
           </Texts>
         </>
