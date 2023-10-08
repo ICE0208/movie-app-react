@@ -9,7 +9,6 @@ const Wrapper = styled.div<{ $preventScroll: boolean }>`
   padding: ${PADDING}px;
   padding-top: calc(${HEADER_HEIGHT}px + ${PADDING}px);
   overflow-y: ${(props) => (props.$preventScroll ? 'hidden' : 'scroll')};
-  overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
