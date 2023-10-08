@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { IMovieDetail, getMovie, makeImagePath } from '../api';
+import { IMovieDetail, getMovie, makeBgPath, makeImagePath } from '../api';
 import { useQuery } from '@tanstack/react-query';
 import { formatMoney, formatRating, formatTime } from '../utils';
 import { XMarkIcon } from '@heroicons/react/20/solid';
@@ -20,6 +20,8 @@ function Detail({
     retry: false,
     refetchOnWindowFocus: false,
   });
+
+  console.log(data);
 
   return (
     <Container layoutId={movieId}>
@@ -50,11 +52,14 @@ function Detail({
           >
             <XMarkIcon />
           </Close>
-          <Img $bgPhoto={makeImagePath(data?.backdrop_path ?? '') ?? ''} />
+          <Img $bgPhoto={makeBgPath(data?.backdrop_path ?? '') ?? ''} />
           <Texts>
             <Title>{data?.title}</Title>
+            <hr />
             <OverView>{data?.overview}</OverView>
+            <hr />
             <InfoBox>
+              <InfoText>Release Date: {data?.release_date}</InfoText>
               <InfoText>Budget: {formatMoney(data?.budget)}</InfoText>
               <InfoText>Revenue: {formatMoney(data?.revenue)}</InfoText>
               <InfoText>Runtime: {formatTime(data?.runtime)}</InfoText>
@@ -107,19 +112,21 @@ const Texts = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   font-style: italic;
   padding: 10px 0;
+  margin-bottom: 10px;
 `;
 
 const OverView = styled.p`
   font-size: 18px;
-  padding: 8px 0;
+  padding: 10px 0;
 `;
 
 const InfoBox = styled.div`
   padding: 14px 0;
+  margin-top: 10px;
 `;
 const InfoText = styled.p`
   font-size: 16px;
